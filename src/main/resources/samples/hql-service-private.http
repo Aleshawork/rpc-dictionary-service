@@ -1,0 +1,12 @@
+POST http://localhost:8081/com.example.orm.service.MessageDulByHqlPrivateService
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id":0,
+  "method":"getMessageDulByHql",
+  "params": {
+    "hql": "select u.code, u.name from User u"
+  }
+
+}

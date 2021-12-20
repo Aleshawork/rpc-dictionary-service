@@ -1,0 +1,36 @@
+POST http://localhost:8081/com.example.orm.service.MessageService
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id":0,
+  "method":"findAll"
+}
+
+###
+POST http://localhost:8081/com.example.orm.service.MessageService
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id":0,
+  "method":"saveMassage",
+  "params": {
+    "text": "I love Java )"
+  }
+
+}
+
+###
+POST http://localhost:8081/com.example.orm.service.MessageService
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id":0,
+  "method":"findAllByUserName",
+  "params": {
+    "name": "Alexey"
+  }
+
+}
