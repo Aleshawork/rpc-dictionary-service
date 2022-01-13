@@ -18,4 +18,5 @@ public interface MessageDulByHqlPrivateService {
      */
     @JsonRpcMethod("getMessageDulByHql")
     List getMessageDulByHql(@JsonRpcParam("hql") String hql);
+
 }

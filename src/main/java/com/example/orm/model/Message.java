@@ -9,7 +9,7 @@ import java.util.Date;
 
 
 @Entity
-public class Message {
+public class Message extends BaseRecords{
     @Id
     @GeneratedValue
     private Long id;
@@ -21,6 +21,9 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Message() {
+    }
 
     public String getText() {
         return text;
@@ -49,5 +52,9 @@ public class Message {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

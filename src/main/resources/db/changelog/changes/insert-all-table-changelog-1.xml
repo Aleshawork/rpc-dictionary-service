@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="insert-object_type-1">
+        <insert tableName="object_type">
+            <column name="id" valueNumeric="1"/>
+            <column name="code" value="DulMain"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="admin" id="insert-object_type-2">
+        <insert tableName="object_type">
+            <column name="id" valueNumeric="2"/>
+            <column name="code" value="Reestra"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet author="admin" id="insert-user-1">
+        <insert tableName="users">
+            <column name="id" valueNumeric="1"/>
+            <column name="age" value="19"/>
+            <column name="name" value="Alexey"/>
+            <column name="type_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="admin" author="insert-user-2">
+        <insert tableName="USERS">
+        <column name="id" valueNumeric="2"/>
+        <column name="age" value="22"/>
+        <column name="name" value="Egor"/>
+        <column name="type_id" value="2"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="admin" author="insert-message-1">
+        <insert tableName="message">
+            <column name="id" valueNumeric="3"/>
+            <column name="date" value="${now}"/>
+            <column name="text" value="Interface is ambiguous things"/>
+            <column name="user_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="admin" author="insert-message-2">
+        <insert tableName="message">
+            <column name="id" valueNumeric="4"/>
+            <column name="date" value="${now}"/>
+            <column name="text" value="Python cool"/>
+            <column name="user_id" value="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

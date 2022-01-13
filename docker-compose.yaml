@@ -1,0 +1,19 @@
+  version: "3.7"
+  services:
+    api_service:
+      build: .
+      ports:
+        - 8081:8081
+      depends_on:
+        - postgres_db
+      links:
+        - postgres_db:database
+    postgres_db:
+      image: "postgres:11.4"
+      ports:
+        - 5432:5432
+      environment:
+        POSTGRES_DB: ORM
+        POSTGRES_PASSWORD: password
+
+

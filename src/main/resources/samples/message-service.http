@@ -1,36 +1,27 @@
-POST http://localhost:8081/com.example.orm.service.MessageService
-Accept: application/json
-Content-Type: application/json
-
-{
-  "id":0,
-  "method":"findAll"
-}
-
 ###
-POST http://localhost:8081/com.example.orm.service.MessageService
+POST {{SERVICE}}/com.example.orm.service.MessageByHqlService
 Accept: application/json
 Content-Type: application/json
 
 {
   "id":0,
-  "method":"saveMassage",
+  "method":"getMessageByHql",
   "params": {
-    "text": "I love Java )"
+    "hql": "select m.text, m.date from Message m"
   }
 
 }
 
 ###
-POST http://localhost:8081/com.example.orm.service.MessageService
+POST {{SERVICE}}/com.example.orm.service.MessageByHqlService
 Accept: application/json
 Content-Type: application/json
 
 {
-  "id":0,
-  "method":"findAllByUserName",
-  "params": {
-    "name": "Alexey"
-  }
+"id":0,
+"method":"getMessageByHql",
+"params": {
+"hql": "select m.text, m.user.age , m.date from Message m where m.user.name='Alexey'"
+}
 
 }

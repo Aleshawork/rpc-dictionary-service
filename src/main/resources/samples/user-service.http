@@ -1,0 +1,26 @@
+POST {{SERVICE}}/com.example.orm.service.UserService
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id":0,
+  "method":"getUserByHql",
+  "params": {
+    "hql": "select u.age,u.name from User u"
+  }
+
+}
+
+###
+POST {{SERVICE}}/com.example.orm.service.UserService
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id":0,
+  "method":"getUserByName",
+  "params": {
+    "name": "Alexey"
+  }
+
+}

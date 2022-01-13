@@ -13,7 +13,7 @@ public class MessageDulByHqlPrivateServiceImpl implements MessageDulByHqlPrivate
     private final JpaRepository jpaRepository;
 
 
-    private String  DUL_CODE = "DulMain";
+    private String[]  DUL_CODE = {"DulMain","Oooprom"};
 
     public MessageDulByHqlPrivateServiceImpl(JpaRepository jpaRepository) {
         this.jpaRepository = jpaRepository;
@@ -25,8 +25,9 @@ public class MessageDulByHqlPrivateServiceImpl implements MessageDulByHqlPrivate
 
         return  jpaRepository.executeRequestWithFilter(
                 em->(em.createQuery(hql)),
-                "DUL_FILTER",
+                "DUL_FILTER_MAIN",
                 Map.of("codes",DUL_CODE)
         ).getResultList();
     }
+
 }

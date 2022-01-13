@@ -23,12 +23,12 @@ public class JpaRepository {
         this.emf = emf;
     }
 
-    public <R> R  executeRequestWithFilter(Function<Session,R> f, String name, Map<String,String> collection){
+    public <R> R  executeRequestWithFilter(Function<Session,R> f, String name, Map<String,String[]> collection){
         Session session = emf.createEntityManager().unwrap(Session.class);
         Filter filter = session.enableFilter(name);
-        for(Map.Entry<String,String> map:collection.entrySet()){
-            logger.info(String.format("Filter: %s, add parameter: {%s,%s} ",name,map.getKey(), map.getValue()));
-            filter.setParameter(map.getKey(),map.getValue());
+        for(Map.Entry<String,String[]> map:collection.entrySet()){
+            logger.info(String.format("Filter: %s, add parameter: {%s,%s} ",name,map.getKey(), Arrays.toString(map.getValue())));
+            filter.setParameterList(map.getKey(),map.getValue());
         }
         return f.apply(session);
     }
@@ -42,5 +42,9 @@ public class JpaRepository {
         EntityManager entityManager = emf.createEntityManager();
         entityManager.persist(alement);
 
+    }
+
+    public EntityManager getEntityManager(){
+        return emf.createEntityManager();
     }
 }
