@@ -4,6 +4,7 @@ import com.example.orm.JpaRepository;
 import com.example.orm.service.MessageDulByHqlPrivateService;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,12 +22,14 @@ public class MessageDulByHqlPrivateServiceImpl implements MessageDulByHqlPrivate
 
     @Override
     public List getMessageDulByHql(String hql) {
+        HashMap<String,String[]> map = new HashMap<>();
+        map.put("codes",DUL_CODE);
 
 
         return  jpaRepository.executeRequestWithFilter(
                 em->(em.createQuery(hql)),
                 "DUL_FILTER_MAIN",
-                Map.of("codes",DUL_CODE)
+                map
         ).getResultList();
     }
 
