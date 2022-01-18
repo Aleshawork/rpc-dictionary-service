@@ -20,9 +20,9 @@ pipeline {
 
 
       stage("Build image") {
-
+        steps {
          myapp = docker.build("aleshawork/docker-test-service")
-
+        }
 
        }
       stage("Push image") {
