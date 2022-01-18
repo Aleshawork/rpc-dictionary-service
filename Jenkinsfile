@@ -20,17 +20,16 @@ pipeline {
 
 
       stage("Build image") {
-      steps {
-          script {
-              myapp = docker.build("my-image")
-          }
-      }
-  }
+
+         myapp = docker.build("aleshawork/docker-test-service")
+
+
+       }
       stage("Push image") {
       steps {
           script {
-              docker.withRegistry('https://hub.docker.com/repository/docker/aleshawork/docker-test-service', 'dockerhub-creds') {
-                      myapp.push()
+              docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
+                      myapp.push("${env.BUILD_NUMBER}")
               }
           }
       }
