@@ -29,9 +29,8 @@ pipeline {
       stage("Push image") {
       steps {
           script {
-              docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
-                      myapp.push("latest")
-                      myapp.push("${env.BUILD_ID}")
+              docker.withRegistry('https://hub.docker.com/repository/docker/aleshawork/docker-test-service', 'dockerhub-creds') {
+                      myapp.push()
               }
           }
       }
