@@ -19,22 +19,22 @@ pipeline {
         }
 
 
-      stage('Push images') {
-            agent any
-            when {
-              branch 'develope'
-            }
-            steps {
-              script {
-                def dockerImage = docker.build("${env.IMAGE_NAME}", "-f ${env.DOCKERFILE_NAME} .")
-                docker.withRegistry('', 'dockerhub-creds') {
-                  dockerImage.push()
-                  dockerImage.push("latest")
-                }
-                echo "Pushed Docker Image: ${env.IMAGE_NAME}"
+      stage("Build image") {
+      steps {
+          script {
+              myapp = docker.build("${IMAGE_BASE}:${env.BUILD_ID}")
+          }
+      }
+  }
+      stage("Push image") {
+      steps {
+          script {
+              docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
+                      myapp.push("latest")
+                      myapp.push("${env.BUILD_ID}")
               }
-              sh "docker rmi ${env.IMAGE_NAME} ${env.IMAGE_NAME_LATEST}"
-            }
+          }
+      }
       }
   }
 
