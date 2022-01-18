@@ -1,7 +1,7 @@
 pipeline {
   agent any
 
-   env{
+   environment{
       IMAGE_BASE = 'aleshawork/docker-test-service'
       IMAGE_TAG = "v${BUILD_NUMBER}"
       IMAGE_NAME = "${env.IMAGE_BASE}:${env.IMAGE_TAG}"
