@@ -21,7 +21,9 @@ pipeline {
 
       stage("Build image") {
         steps {
-         myapp = docker.build("aleshawork/docker-test-service")
+           script {
+               myapp = docker.build("aleshawork/docker-test-service")
+             }
         }
 
        }
