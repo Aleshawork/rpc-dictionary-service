@@ -3,10 +3,6 @@ pipeline {
 
    environment{
       IMAGE_BASE = 'aleshawork/docker-test-service'
-      IMAGE_TAG = "v${BUILD_NUMBER}"
-      IMAGE_NAME = "${env.IMAGE_BASE}:${env.IMAGE_TAG}"
-      IMAGE_NAME_LATEST = "${env.IMAGE_BASE}:latest"
-      DOCKERFILE_NAME = "Dockerfile"
     }
 
   stages {
@@ -21,9 +17,11 @@ pipeline {
 
       stage("Build image") {
         steps {
-           script {
-               myapp = docker.build("aleshawork/docker-test-service")
-             }
+         sh 'docker build -t aleshawork/docker-test-service:latest .'
+//            script {
+//                 sh 'docker build -t shanem/spring-petclinic:latest .'
+//                //myapp = docker.build("${IMAGE_BASE}")
+//              }
         }
 
        }
