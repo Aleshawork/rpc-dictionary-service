@@ -23,6 +23,9 @@ pipeline
                }
 
               stage("Push image") {
+              when {
+                branch "develope"
+              }
                 steps{
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable:'dockerHubPassword', usernameVariable:'dockerHubUser')]){
                         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
