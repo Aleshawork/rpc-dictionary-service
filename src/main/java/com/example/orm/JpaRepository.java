@@ -23,15 +23,7 @@ public class JpaRepository {
         this.emf = emf;
     }
 
-    public <R> R  executeRequestWithFilter(Function<Session,R> f, String name, Map<String,String[]> collection){
-        Session session = emf.createEntityManager().unwrap(Session.class);
-        Filter filter = session.enableFilter(name);
-        for(Map.Entry<String,String[]> map:collection.entrySet()){
-            logger.info(String.format("Filter: %s, add parameter: {%s,%s} ",name,map.getKey(), Arrays.toString(map.getValue())));
-            filter.setParameterList(map.getKey(),map.getValue());
-        }
-        return f.apply(session);
-    }
+
 
     public <R> R  executeRequest(Function<Session,R> f){
         Session session = emf.createEntityManager().unwrap(Session.class);

@@ -26,10 +26,8 @@ public class MessageDulByHqlPrivateServiceImpl implements MessageDulByHqlPrivate
         map.put("codes",DUL_CODE);
 
 
-        return  jpaRepository.executeRequestWithFilter(
-                em->(em.createQuery(hql)),
-                "DUL_FILTER_MAIN",
-                map
+        return  jpaRepository.executeRequest(
+                em->(em.createQuery(hql))
         ).getResultList();
     }
 

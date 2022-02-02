@@ -1,23 +1,16 @@
 package com.example.orm.model;
-import org.hibernate.annotations.Filter;
-import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.FilterJoinTable;
-import org.hibernate.annotations.ParamDef;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
-@FilterDef(
-        name="DUL_FILTER_MAIN",
-        parameters = {@ParamDef(
-                name = "codes",
-                type="string"
-        )}
-)
-@Filter(name="DUL_FILTER_MAIN", condition=
-        "type_id  in (select id from object_type o where o.code in (:codes))")
+
 @Entity
 @Table(name = "users")
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +23,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Message> messages;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="type_id")
     private ObjectType objectType;
 
