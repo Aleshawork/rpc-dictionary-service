@@ -43,7 +43,7 @@
     <changeSet id="admin" author="insert-message-1">
         <insert tableName="message">
             <column name="id" valueNumeric="3"/>
-            <column name="date" value="${now}"/>
+            <column name="date" valueDate="CURRENT_TIMESTAMP"/>
             <column name="text" value="Interface is ambiguous things"/>
             <column name="user_id" value="1"/>
         </insert>
@@ -52,7 +52,7 @@
     <changeSet id="admin" author="insert-message-2">
         <insert tableName="message">
             <column name="id" valueNumeric="4"/>
-            <column name="date" value="${now}"/>
+            <column name="date" valueDate="CURRENT_TIMESTAMP"/>
             <column name="text" value="Python cool"/>
             <column name="user_id" value="2"/>
         </insert>

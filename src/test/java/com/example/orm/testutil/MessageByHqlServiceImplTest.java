@@ -18,7 +18,7 @@ public class MessageByHqlServiceImplTest extends AbstractMessageBaseTest{
     public void getMessageByHql() throws Exception {
         String body = "{\"id\":0,\"method\":\"getMessageByHql\",\"params\":{\"hql\":\"select m.text, m.date from Message m\"}}";
         performeRequest("/com.example.orm.service.MessageByHqlService",body)
-                .andExpect(jsonPath("$.result", hasSize(1)))
+                .andExpect(jsonPath("$.result", hasSize(2)))
                 .andReturn();
     }
 }
