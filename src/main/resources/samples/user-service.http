@@ -6,7 +6,7 @@ Content-Type: application/json
   "id":0,
   "method":"getUserByHql",
   "params": {
-    "hql": "select u.name, u.age from User u  "
+    "hql": "select u.age, u.name, m.text  from User u left join  u.messages m  where m.text='Interface is ambiguous things'"
   }
 
 }
