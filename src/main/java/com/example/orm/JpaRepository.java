@@ -39,4 +39,8 @@ public class JpaRepository {
     public EntityManager getEntityManager(){
         return emf.createEntityManager();
     }
+
+    public EntityManagerFactory getEmf() {
+        return emf;
+    }
 }
