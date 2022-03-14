@@ -23,6 +23,4 @@ public class ObjectType extends BaseRecords {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public ObjectType() {
-    }
 }

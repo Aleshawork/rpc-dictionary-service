@@ -12,7 +12,6 @@ import java.util.Locale;
 public class MainInformation implements Serializable {
 
     private String code;
-
     private String source;
 
     private String date;

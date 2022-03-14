@@ -1,9 +1,4 @@
 package com.example.orm.model;
-
-import org.hibernate.annotations.Filter;
-import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.ParamDef;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -22,8 +17,6 @@ public class Message extends BaseRecords{
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Message() {
-    }
 
     public String getText() {
         return text;
