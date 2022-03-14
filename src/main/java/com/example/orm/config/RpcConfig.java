@@ -1,7 +1,6 @@
 package com.example.orm.config;
 
 import com.example.orm.model.User;
-import com.example.orm.model.converter.UserJsonDeSerializer;
 import com.example.orm.model.converter.UserJsonSerializer;
 import com.example.orm.service.MessageByHqlService;
 import com.example.orm.service.MessageDulByHqlPrivateService;
@@ -48,7 +47,6 @@ public class RpcConfig {
         ObjectMapper objectMapper = new ObjectMapper();
        SimpleModule simpleModule =  new SimpleModule();
         simpleModule.addSerializer(new UserJsonSerializer(User.class));
-        //simpleModule.addDeserializer(User.class,new UserJsonDeSerializer(User.class));
         objectMapper.registerModule(simpleModule);
         jsonServiceExporter.setObjectMapper(objectMapper);
         return jsonServiceExporter;
