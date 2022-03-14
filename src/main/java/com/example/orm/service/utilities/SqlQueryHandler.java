@@ -35,7 +35,6 @@ public class SqlQueryHandler {
     public static List<String>  getAttrName(String sql) throws SQLException {
         List<String> listAttr = new ArrayList<>();
         if(!sql.contains("select")) throw new SQLException("The request is not correctly!");
-        String atributes = sql.substring(sql.indexOf("select")+6,sql.indexOf("from")).trim();
         Pattern pattern = Pattern.compile("\\.[a-z]+(\\s|\\,)");
         Matcher matcher = pattern.matcher(sql);
         while (matcher.find()){
