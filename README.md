@@ -4,4 +4,5 @@
 - Дефолтные Serializer для нестандартных случаев
 - Hibernate Converter для встраеваемой в сущность Json-ки в базу
 - Парсер для обработки hql запросов от клиента
-- Немного заюзал Liquibase
+- Liquibase
+- Hibernate Cache
