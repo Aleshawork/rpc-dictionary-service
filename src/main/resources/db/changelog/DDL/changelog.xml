@@ -5,7 +5,5 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="admin" id="generate_schema">
-        <sqlFile path="db/changelog/DDL/01_generate_schema.sql"/>
-    </changeSet>
+    <include file="./db/changelog/DDL/create_table.xml"></include>
 </databaseChangeLog>

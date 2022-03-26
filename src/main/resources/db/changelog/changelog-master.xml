@@ -6,5 +6,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
      <include file="/db/changelog/DDL/changelog.xml"/>
-     <include file="db/changelog/changes/insert-all-table-changelog-1.xml"/>
+     <include file="/db/changelog/changes/insert-all-table-changelog-1.xml"/>
+
+     <changeSet id="insert_information" author="borisov-am">
+          <sqlFile path="/db/changelog/changes/insert-information.sql"/>
+     </changeSet>
 </databaseChangeLog>
