@@ -7,6 +7,7 @@
 - Liquibase
 - Hibernate Cache
 
-## CI
+[![Build Status](http://localhost:8082/buildStatus/icon?job=service-pipeline%2Fdevelop)](http://localhost:8082/job/service-pipeline/job/develop/)
+## CI 
 Локально поднимается Jenkins с pipeline для сборки и загрузки image в Docker Hub  
 ** Планируется подключения шага проверки кода в  SonarQube 
