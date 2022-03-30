@@ -34,20 +34,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 public abstract class AbstractBaseTest {
 
 
-
-//    @Autowired
-//    protected EntityManagerFactory entityManagerFactory;
     @PersistenceContext
     protected EntityManager em;
 
 
     @Autowired
     private MockMvc mockMvc;
-
-//    public EntityManager getEntityManager(){
-//        return entityManagerFactory.createEntityManager();
-//    }
-
 
 
     protected ResultActions performeRequest(String url,String content) throws Exception {
