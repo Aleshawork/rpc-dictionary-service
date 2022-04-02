@@ -20,4 +20,5 @@ public class InformationController {
     public List<Information> getAllInformation(){
         return informationService.getAllInformation();
     }
+
 }

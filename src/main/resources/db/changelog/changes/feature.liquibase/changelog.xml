@@ -19,11 +19,6 @@
         <renameColumn tableName="users"
                       oldColumnName="name"
                       newColumnName="full_name"/>
-        <rollback>
-            <renameColumn tableName="users"
-                          oldColumnName="full_name"
-                          newColumnName="name"/>
-        </rollback>
     </changeSet>
 
 

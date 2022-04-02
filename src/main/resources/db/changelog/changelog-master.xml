@@ -5,10 +5,10 @@
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-     <include file="/db/changelog/DDL/changelog.xml"/>
-     <include file="/db/changelog/changes/insert-all-table-changelog-1.xml"/>
-     <include file="/db/changelog/changes/feature.liquibase/changelog.xml"/>
-     <include file="/db/changelog/changes/feature.liquibase-addcolumn/changelog.xml"/>
+     <include file="./db/changelog/DDL/changelog.xml"/>
+     <include file="./db/changelog/changes/insert-all-table-changelog-1.xml"/>
+     <include file="./db/changelog/changes/feature.liquibase/changelog.xml"/>
+     <include file="./db/changelog/changes/feature.liquibase-addcolumn/changelog.xml"/>
      <!--<include file="/db/changelog/changes/bugfix.rename/changelog.xml"/>-->
 
      <changeSet id="insert_information" author="borisov-am">
